@@ -10,7 +10,7 @@
 <body>
 	<form class="container" action="index.php" method="post">
   		<h1>Sign in to your account</h1>
-  		<input type="text" name="login">
+  		<input type="text" name="login" placeholder="Username">
 	</form>
 </body>
 </html>
