@@ -2,7 +2,7 @@
 	width: 100%;
 	max-width: 300px;
 	margin: 0 auto;
-	padding: 40px 20px;
+	padding: 37px 20px;
 	background: #394264;
 	border-radius: 4px;
 }
@@ -13,4 +13,16 @@ h1 {
 	font-weight: 500;
 	text-align: center;
 	text-transform: uppercase;
+	line-height: 11px;
 }
+
+.container input[type="text"],
+.container input[type="password"]{
+	height: 50px;
+    width: 260px;
+    border: 1px solid #1f253d;
+    margin-top: 43px;
+    border-radius: 4px;
+    background: #50597b;
+    color: #fff;
+    font-size: 16px;
