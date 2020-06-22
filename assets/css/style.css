@@ -13,9 +13,3 @@ body {
 *:after {
 	box-sizing: border-box;
 }
-
-.container {
-	width: 100%;
-	max-width: 390px;
-	margin: 0 auto;
-}
