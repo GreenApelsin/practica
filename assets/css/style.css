@@ -1,3 +1,21 @@
 body {
 	background: #333;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+
+	font-size: 14px;
+	line-height: 1.6;
+	color: #fff;
+}
+
+*.
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	max-width: 390px;
+	margin: 0 auto;
 }
