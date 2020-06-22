@@ -21,8 +21,21 @@ h1 {
 	height: 50px;
     width: 260px;
     border: 1px solid #1f253d;
-    margin-top: 43px;
     border-radius: 4px;
     background: #50597b;
     color: #fff;
     font-size: 16px;
+    padding-left: 48px;
+}
+
+.container input[type="text"]:focus,
+.container input[type="password"]:focus{
+	border: 1px solid #11a8ab;
+    border-radius: 3px;
+    outline: none;
+}
+
+.container input[type="text"]::placeholder,
+.container input[type="password"]::placeholder{
+	color: #9099b7;
+}
