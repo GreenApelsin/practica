@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<title>Авторизация</title>
-	</head>
-	<body>
+</head>
+<body>
 
-	</body>
+</body>
 </html>
