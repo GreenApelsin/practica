@@ -2,7 +2,7 @@
 	width: 100%;
 	max-width: 300px;
 	margin: 0 auto;
-	padding: 37px 20px;
+	padding: 35px 20px;
 	background: #394264;
 	border-radius: 4px;
 }
@@ -16,26 +16,35 @@ h1 {
 	line-height: 11px;
 }
 
-.container input[type="text"],
-.container input[type="password"]{
+.container input{
 	height: 50px;
     width: 260px;
     border: 1px solid #1f253d;
     border-radius: 4px;
     background: #50597b;
     color: #fff;
-    font-size: 16px;
-    padding-left: 48px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 15.5px;
+    padding-left: 45px;
+    padding-right: 10px;
 }
 
-.container input[type="text"]:focus,
-.container input[type="password"]:focus{
+.container input:focus{
 	border: 1px solid #11a8ab;
-    border-radius: 3px;
+    border-radius: 4px;
     outline: none;
 }
 
-.container input[type="text"]::placeholder,
-.container input[type="password"]::placeholder{
+.container input::placeholder{
 	color: #9099b7;
+	font-size: 15.5px;
+}
+
+.container input[name="login"] {
+	margin-top: 40px;
+}
+
+.container input[name="password"] {
+	margin-top: 15px;
 }
