@@ -4,12 +4,13 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 	<title>Авторизация</title>
 </head>
 <body>
-	<div class="container">
-		<div class="login-header">User Login</div>
-	</div>
+	<form class="container" action="index.php" method="post">
+  		<h1>Sign in to your account</h1>
+  		<input type="text" name="login">
+	</form>
 </body>
 </html>
