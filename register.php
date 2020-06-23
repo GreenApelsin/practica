@@ -9,13 +9,14 @@
 </head>
 <body>
 	<form class="container" action="index.php" method="post">
-  		<h1>Sign in to your account</h1>
+  		<h1>Registration</h1>
   		<?php echo '<div class="errorlogin">Error email/password</div>' ?>
-  		<input type="text" name="login" placeholder="E-mail" spellcheck="false">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false">
+  		<input type="text" name="email" placeholder="E-mail" spellcheck="false">
   		<input type="password" name="password" placeholder="Password">
-  		<input type="submit" name="signin" value="Sign in">
-  		<a href="#" style="visibility: hidden;">Forgot Password?</a>
-  		<a href="/registr.php" style="text-align: right;">Create account</a>
+  		<input type="password" name="password2" placeholder="Repeat password">
+  		<input type="submit" name="signin" value="Create">
+  		<a href="/registr.php" style="text-align: center; width: 260px;">Sign in</a>
 	</form>
 </body>
 </html>
