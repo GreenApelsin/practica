@@ -41,6 +41,7 @@ if (isset($data['create'])){
 		$result = $cursor->fetch_assoc();
 		if (count($result) != 0){
 			$errors[] = "That username or email already exists";
+			$mysql->close();
 		}else{
 			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
 			$mysql->close();
