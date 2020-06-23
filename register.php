@@ -5,7 +5,7 @@ $data = $_POST;
 $errors = array();
 if (isset($data['create'])){
 	if(trim($data['login']) == ''){
-		$errors[] = 'Enter username'
+		$errors[] = 'Enter username';
 	}
 }
 
