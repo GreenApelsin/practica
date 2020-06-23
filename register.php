@@ -33,10 +33,17 @@ if (isset($data['create'])){
 	  						`email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 	  						`password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 							) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
+			$mysql->query("ALTER TABLE `user` ADD PRIMARY KEY (`id`);");
+			$mysql->query("ALTER TABLE `user` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
 		}
-		$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
-		$mysql->close();
-		echo "izi";
+		$cursor = $mysql->query("SELECT * FROM `user` WHERE `login` = '".$data['login']."' OR `email` = '".$data['email']."';");
+		$result = $cursor->fetch_assoc();
+		if (count($result) != 0){
+			$errors[] = "That username or email already exists";
+		}else{
+			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
+			$mysql->close();
+		}
 	}
 }
 
