@@ -1,7 +1,11 @@
 <?php
 require "config.php";
 $configs = include('config.php');
+$data = $_POST;
 $errors = array();
+if (isset($data['create'])){
+	echo "string";
+}
 
 ?>
 
@@ -15,18 +19,18 @@ $errors = array();
 	<title>Авторизация</title>
 </head>
 <body>
-	<form class="container" action="index.php" method="post">
+	<form class="container" action="register.php" method="post">
   		<h1>Registration</h1>
   		<?php 
   		if(!empty($errors)){
-  			echo '<div class="errorlogin">'.array_shift($errors)'</div>';
+  			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
   		}
   		?>
   		<input type="text" name="login" placeholder="Login" spellcheck="false">
   		<input type="text" name="email" placeholder="E-mail" spellcheck="false">
   		<input type="password" name="password" placeholder="Password">
   		<input type="password" name="password2" placeholder="Repeat password">
-  		<input type="submit" name="signin" value="Create">
+  		<input type="submit" name="create" value="Create">
   		<a href="/" style="text-align: center; width: 260px;">Sign in</a>
 	</form>
 </body>
