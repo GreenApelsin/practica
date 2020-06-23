@@ -4,7 +4,9 @@ $configs = include('config.php');
 $data = $_POST;
 $errors = array();
 if (isset($data['create'])){
-	echo "string";
+	if(trim($data['login']) == ''){
+		$errors[] = 'Enter username'
+	}
 }
 
 ?>
@@ -26,8 +28,8 @@ if (isset($data['create'])){
   			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
   		}
   		?>
-  		<input type="text" name="login" placeholder="Login" spellcheck="false">
-  		<input type="text" name="email" placeholder="E-mail" spellcheck="false">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php echo @$data['login']; ?>">
+  		<input type="text" name="email" placeholder="E-mail" spellcheck="false" value="<?php echo @$data['email']; ?>">
   		<input type="password" name="password" placeholder="Password">
   		<input type="password" name="password2" placeholder="Repeat password">
   		<input type="submit" name="create" value="Create">
