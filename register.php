@@ -16,7 +16,7 @@
   		<input type="password" name="password" placeholder="Password">
   		<input type="password" name="password2" placeholder="Repeat password">
   		<input type="submit" name="signin" value="Create">
-  		<a href="/registr.php" style="text-align: center; width: 260px;">Sign in</a>
+  		<a href="/" style="text-align: center; width: 260px;">Sign in</a>
 	</form>
 </body>
 </html>
