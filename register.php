@@ -1,3 +1,10 @@
+<?php
+require "config.php";
+$configs = include('config.php');
+$errors = array();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +17,11 @@
 <body>
 	<form class="container" action="index.php" method="post">
   		<h1>Registration</h1>
-  		<?php echo '<div class="errorlogin">Error email/password</div>' ?>
+  		<?php 
+  		if(!empty($errors)){
+  			echo '<div class="errorlogin">'.array_shift($errors)'</div>';
+  		}
+  		?>
   		<input type="text" name="login" placeholder="Login" spellcheck="false">
   		<input type="text" name="email" placeholder="E-mail" spellcheck="false">
   		<input type="password" name="password" placeholder="Password">
