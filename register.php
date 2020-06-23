@@ -5,8 +5,24 @@ $data = $_POST;
 $errors = array();
 if (isset($data['create'])){
 	if(trim($data['login']) == ''){
-		$errors[] = 'Enter username';
+		$errors[] = "Username can't be empty";
 	}
+	if(trim($data['email']) == ''){
+		$errors[] = "Email can't be empty";
+	}
+	if(!strpos($data['email'], '@')){
+		$errors[] = 'Email format is incorrect';
+	}
+	if($data['password'] == ''){
+		$errors[] = "Password can't be empty";
+	}
+	if($data['password2'] == ''){
+		$errors[] = "Confirm password";
+	}
+	if($data['password'] != $data['password2']){
+		$errors[] = "Password mismatch";
+	}
+
 }
 
 ?>
