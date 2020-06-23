@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 return array(
     'host' => 'localhost',
     'username' => 'a0448231_practic',
