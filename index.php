@@ -12,6 +12,7 @@
   		<h1>Sign in to your account</h1>
   		<input type="text" name="login" placeholder="Username" spellcheck="false">
   		<input type="password" name="password" placeholder="Password">
+  		<input type="submit" name="signin" value="Sign in">
 	</form>
 </body>
 </html>
