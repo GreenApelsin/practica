@@ -1,6 +1,7 @@
 <?php
 require "config.php";
 $configs = include('config.php');
+$regok = false;
 $data = $_POST;
 $errors = array();
 if (isset($data['create'])){
@@ -43,8 +44,7 @@ if (isset($data['create'])){
 		}else{
 			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
 			$mysql->close();
-			$errors[] = "123";
-			header ('Location: index.php');
+			$regok = true;
 		}
 	}
 }
@@ -67,9 +67,12 @@ if (isset($data['create'])){
   		if(!empty($errors)){
   			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
   		}
+  		if($regok){
+  			echo '<div class="errorlogin" style="color: #53B82D">Registration completed successfully</div>';
+  		}
   		?>
-  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php echo @$data['login']; ?>">
-  		<input type="text" name="email" placeholder="E-mail" spellcheck="false" value="<?php echo @$data['email']; ?>">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php if(!$regok){echo @$data['login'];} ?>">
+  		<input type="text" name="email" placeholder="E-mail" spellcheck="false" value="<?php if(!$regok){echo @$data['email'];} ?>">
   		<input type="password" name="password" placeholder="Password">
   		<input type="password" name="password2" placeholder="Repeat password">
   		<input type="submit" name="create" value="Create">
