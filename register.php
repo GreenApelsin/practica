@@ -22,7 +22,11 @@ if (isset($data['create'])){
 	if($data['password'] != $data['password2']){
 		$errors[] = "Password mismatch";
 	}
-
+	$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
+	$cursor = $mysql->query("SELECT * FROM `user` WHERE `id` = '1'");
+	$result = $cursor->fetch_assoc();
+	echo "string".$result['name'];
+	$mysql->close();
 }
 
 ?>
