@@ -14,7 +14,7 @@
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#" style="visibility: hidden;">Forgot Password?</a>
-  		<a href="#" style="text-align: right;">Create account</a>
+  		<a href="/registr.php" style="text-align: right;">Create account</a>
 	</form>
 </body>
 </html>
