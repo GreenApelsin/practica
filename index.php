@@ -14,7 +14,7 @@
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#">Forgot Password?</a>
-  		<a href="#">Create account</a>
+  		<a href="#" style="text-align: right;">Create account</a>
 	</form>
 </body>
 </html>
