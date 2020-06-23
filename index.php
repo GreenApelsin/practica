@@ -11,7 +11,7 @@
 	<form class="container" action="index.php" method="post">
   		<h1>Sign in to your account</h1>
   		<?php echo '<div class="errorlogin">Error email/password</div>' ?>
-  		<input type="text" name="login" placeholder="E-mail" spellcheck="false">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false">
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#" style="visibility: hidden;">Forgot Password?</a>
