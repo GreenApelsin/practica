@@ -94,3 +94,9 @@ h1 {
 .container a:hover {
 	color: #fff;
 }
+
+.errorlogin {
+	text-align: center;
+    color: #cc324b;
+    margin-top: 15px;
+}
