@@ -22,11 +22,22 @@ if (isset($data['create'])){
 	if($data['password'] != $data['password2']){
 		$errors[] = "Password mismatch";
 	}
-	$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-	$cursor = $mysql->query("SELECT * FROM `user` WHERE `id` = '1'");
-	$result = $cursor->fetch_assoc();
-	echo "string".$result['name'];
-	$mysql->close();
+	if (empty($errors)) {
+		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
+		$cursor = $mysql->query("CHECK TABLE user;");
+		$result = $cursor->fetch_assoc();
+		if ($result['Msg_type'] == 'Error'){
+			$mysql->query("CREATE TABLE `user` (
+	  						`id` int(11) NOT NULL,
+	  						`login` varchar(13) COLLATE utf8_unicode_ci NOT NULL,
+	  						`email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  						`password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+							) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
+		}
+		$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
+		$mysql->close();
+		echo "izi";
+	}
 }
 
 ?>
