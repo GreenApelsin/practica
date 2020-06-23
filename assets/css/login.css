@@ -44,11 +44,7 @@ h1 {
 	font-size: 15.5px;
 }
 
-.container input[name="login"] {
-	margin-top: 40px;
-}
-
-.container input[name="password"] {
+.container input[type="password"] {
 	margin-top: 15px;
 	background: url(../img/password.png) no-repeat center left #50597b;
     background-position-x: 13px;
@@ -57,6 +53,11 @@ h1 {
 .container input[name="login"] {
 	margin-top: 15px;
 	background: url(../img/login.png) no-repeat center left #50597b;
+    background-position-x: 13px;
+}
+.container input[name="email"] {
+	margin-top: 15px;
+	background: url(../img/email.png) no-repeat center left #50597b;
     background-position-x: 13px;
 }
 
@@ -99,4 +100,5 @@ h1 {
 	text-align: center;
     color: #cc324b;
     margin-top: 15px;
+    font-weight: 500;
 }
