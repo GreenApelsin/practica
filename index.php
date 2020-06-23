@@ -4,6 +4,12 @@ $configs = include('config.php');
 $data = $_POST;
 $errors = array();
 
+if(isset($_SESSION['logged_user'])){
+	header("Location: /main.php");
+	exit();
+}
+
+
 if (isset($data['signin'])){
 	if(trim($data['login']) == ''){
 		$errors[] = "Username can't be empty";
@@ -17,9 +23,9 @@ if (isset($data['signin'])){
 		$result = $cursor->fetch_assoc();
 		if ($result){
 			if (password_verify($data['password'], $result['password'])){
-				$_SESSION['logget_user'] = $result;
-				echo "ok";
+				$_SESSION['logged_user'] = $result;
 				$mysql->close();
+				header("Location: /main.php");
 				exit();
 			}
 		}
