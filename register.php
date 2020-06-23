@@ -43,6 +43,8 @@ if (isset($data['create'])){
 		}else{
 			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
 			$mysql->close();
+			$errors[] = "123";
+			header ('Location: index.php');
 		}
 	}
 }
