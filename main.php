@@ -22,9 +22,10 @@ echo '<a href="/logout.php">Выход</a>';
 	<div class="container">
 		<div class="right">
 			<ui>
-				<li>Menu</li>
-				<li>Menu1</li>
-				<li>Menu2</li>
+				<li>Main page</li>
+				<li>Send file</li>
+				<li>My files</li>
+				<li>Received file</li>
 			</ui>
 		</div>
 	</div>
