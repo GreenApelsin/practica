@@ -33,7 +33,14 @@ if(!isset($_SESSION['logged_user'])){
 				<tr>
 					<td>Owner</td>
 					<td>File name</td>
-					<td>File weight</td>
+				</tr>
+				<tr>
+					<td>odmen</td>
+					<td>файл</td>
+				</tr>
+				<tr>
+					<td>odmen</td>
+					<td>doclad</td>
 				</tr>
 			</table>
 		</div>
