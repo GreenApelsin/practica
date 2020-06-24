@@ -4,8 +4,9 @@ $errors = array();
 $data = $_POST;
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
+	exit();
 }
-
+echo time();
 if (isset($data['send'])) {
 	if(trim($data['name']) == ''){
 		$errors[] = "File name can't be empty";
@@ -13,9 +14,17 @@ if (isset($data['send'])) {
 	if(trim($data['select']) == ''){
 		$errors[] = "Selected user can't be empty";
 	}
+
+	//проверяем $_FILES на наличие и наличие загруженного файла
 	if (isset($_FILES['upload']) && $_FILES['upload']['name'] != "") {
 		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$_FILES['upload']['name']);
 		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
+
+		//получаем id полуателя
+		$cursor = $mysql->query("SELECT `id` FROM `user` WHERE `login` = '".$data['select']."'");
+		$id = $cursor->fetch_assoc();
+
+		//проверяем таблицу 'infofiles' на наличие
 		$cursor = $mysql->query("CHECK TABLE infofiles;");
 		$result = $cursor->fetch_assoc();
 		if ($result['Msg_type'] == 'Error'){
@@ -29,6 +38,9 @@ if (isset($data['send'])) {
 			$mysql->query("ALTER TABLE `infofiles` ADD PRIMARY KEY (`id`);");
 			$mysql->query("ALTER TABLE `infofiles` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
 		}
+		//записываем строку в базу
+		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('name', 'errre', '1', '3');");
+
 		$mysql->close();
 	}else{
 		$errors[] = "File can't be empty";
