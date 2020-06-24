@@ -13,15 +13,21 @@ if (isset($data['send'])) {
 	if(trim($data['select']) == ''){
 		$errors[] = "Selected user can't be empty";
 	}
-	var_dump($_FILES);
-	if (isset($_FILES['upload']) && $_FILES['name'] != '') {
+	if (isset($_FILES['upload']) && $_FILES['upload']['name'] != "") {
 		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$_FILES['upload']['name']);
-		echo "string1";
+		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
 		$cursor = $mysql->query("CHECK TABLE infofiles;");
-		echo "string2";
 		$result = $cursor->fetch_assoc();
 		if ($result['Msg_type'] == 'Error'){
-			echo "string3";
+			$mysql->query("CREATE TABLE `infofiles` (
+							`id` int(11) NOT NULL,
+							`name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+							`real-name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+							`author-id` int(11) NOT NULL,
+							`where-id` int(11) NOT NULL
+							) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
+			$mysql->query("ALTER TABLE `infofiles` ADD PRIMARY KEY (`id`);");
+			$mysql->query("ALTER TABLE `infofiles` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
 		}
 		$mysql->close();
 	}else{
