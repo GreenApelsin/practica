@@ -6,8 +6,6 @@ if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 }
 
-echo '<a href="/logout.php">Выход</a>';
-
 ?>
 
 <html>
@@ -27,6 +25,7 @@ echo '<a href="/logout.php">Выход</a>';
 				<li><a href="/send.php">Send file</a></li>
 				<li><a href="/my.php">My files</a></li>
 				<li><a href="/received.php">Received file</a></li>
+				<li class="end"><a href="/logout.php">Log out</a></li>
 			</ui>
 		</div>
 	</div>
