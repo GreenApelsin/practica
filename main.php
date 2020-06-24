@@ -18,7 +18,7 @@ if(!isset($_SESSION['logged_user'])){
 </head>
 <body>
 	<div class="container">
-		<div class="right">
+		<div class="left">
 			<ui>
 				<li class="menu">Menu</li>
 				<li class="activ"><a href="/main.php">Main page</a></li>
