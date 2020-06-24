@@ -135,7 +135,6 @@ input[type="text"]:focus {
 }
 
 input[type="submit"] {
-	display: block;
     width: 65px;
     height: 30px;
     background: #e64c65;
@@ -180,4 +179,8 @@ select:focus {
 	border: 1px solid #11a8ab;
     border-radius: 4px;
     outline: none;
+}
+
+.filesend {
+    
 }
