@@ -21,12 +21,12 @@ echo '<a href="/logout.php">Выход</a>';
 <body>
 	<div class="container">
 		<div class="right">
-			<ui>
-				<li>Main page</li>
-				<li>Send file</li>
-				<li>My files</li>
-				<li>Received file</li>
-			</ui>
+			
+			<a href="/main.php">Main page</a>
+			<a href="/send.php">Send file</a>
+			<a href="/my.php">My files</a>
+			<a href="/received.php">Received file</a>
+			
 		</div>
 	</div>
 </body>
