@@ -79,8 +79,10 @@
 table {
 	width: 100%;
     text-align: center;
-    border: 1px solid;
 }
+
+tr {
+	border: 1px solid;
 }
 
 h1 {
@@ -90,6 +92,7 @@ h1 {
 	text-align: center;
 	text-transform: uppercase;
 	line-height: 11px;
+	margin-bottom: 10px; 
 }
 
 .errorlogin {
@@ -97,4 +100,12 @@ h1 {
     color: #cc324b;
     margin-top: 15px;
     font-weight: 500;
+}
+
+.trtit {
+	background: #1f253d;
+}
+
+.tr2 {
+	background: #50597b;
 }
