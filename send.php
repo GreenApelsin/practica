@@ -6,7 +6,7 @@ if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 	exit();
 }
-echo time();
+
 if (isset($data['send'])) {
 	if(trim($data['name']) == ''){
 		$errors[] = "File name can't be empty";
@@ -17,7 +17,13 @@ if (isset($data['send'])) {
 
 	//проверяем $_FILES на наличие и наличие загруженного файла
 	if (isset($_FILES['upload']) && $_FILES['upload']['name'] != "") {
-		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$_FILES['upload']['name']);
+		//гененируем имя файла, что бы можно было загружать с одинаковыми именами
+		$endname = substr($_FILES['upload']['name'],strpos($_FILES['upload']['name'], "."));
+		$gennsme = time()."_".$_SESSION['logged_user']['id'].$endname;
+
+		// загружаем файл
+		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$gennsme);
+
 		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
 
 		//получаем id полуателя
@@ -39,7 +45,7 @@ if (isset($data['send'])) {
 			$mysql->query("ALTER TABLE `infofiles` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
 		}
 		//записываем строку в базу
-		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('name', 'errre', '1', '3');");
+		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('".$gennsme."', '".$data['name']."', '".$_SESSION['logged_user']['id']."', '".$id['id']."');");
 
 		$mysql->close();
 	}else{
