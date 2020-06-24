@@ -2,6 +2,8 @@
 $configs = include('config.php');
 $errors = array();
 $data = $_POST;
+$sendok = false;
+
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 	exit();
@@ -46,7 +48,7 @@ if (isset($data['send'])) {
 		}
 		//записываем строку в базу
 		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('".$gennsme."', '".$data['name']."', '".$_SESSION['logged_user']['id']."', '".$id['id']."');");
-
+		$sendok = true;
 		$mysql->close();
 	}else{
 		$errors[] = "File can't be empty";
@@ -84,7 +86,11 @@ if (isset($data['send'])) {
 	  		if(!empty($errors)){
 	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
 	  		}
+	  		if($sendok){
+  				echo '<div class="errorSend" style="color: #53B82D">File send</div>';
+  			}
 	  		?>
+
 	  		<input type="text" name="name" placeholder="File name" spellcheck="false" value="<?php if(!$regok){echo @$data['name'];} ?>">
 
 	  		<?php 
