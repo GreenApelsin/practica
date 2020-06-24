@@ -4,6 +4,12 @@ $configs = include('config.php');
 $regok = false;
 $data = $_POST;
 $errors = array();
+
+if(isset($_SESSION['logged_user'])){
+	header("Location: /main.php");
+	exit();
+}
+
 if (isset($data['create'])){
 	if(trim($data['login']) == ''){
 		$errors[] = "Username can't be empty";
