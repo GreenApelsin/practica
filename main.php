@@ -5,6 +5,8 @@ $errors = array();
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 }
+
+}
 ?>
 
 <html>
@@ -36,7 +38,7 @@ if(!isset($_SESSION['logged_user'])){
 				</tr>
 				<?php
 				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-				$cursor = $mysql->query("SELECT `login`, `real-name` FROM `infofiles`, `user` WHERE `infofiles`.`id` = `user`.`id`;");
+				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`id` = `user`.`id`;");
 				$flagg = false;
 				while( $result = $cursor->fetch_assoc() ) { 
 					if ($flagg){
@@ -44,7 +46,7 @@ if(!isset($_SESSION['logged_user'])){
 					}else{
 						echo '<tr class="tr2"><td>';
 					}
-        			echo $result['login'].'</td><td>'.$result['real-name'].'</td></tr>';
+        			echo $result['login'].'</td><td><a href="/file/'.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
         			$flagg = !$flagg;
         		}
 				$mysql->close();
