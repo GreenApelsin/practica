@@ -204,3 +204,10 @@ input[type="file"]{
     line-height: 194px;
     width: 824px;
 }
+
+.errorSend {
+    text-align: center;
+    color: #cc324b;
+    margin-top: 15px;
+    font-weight: 500;
+}
