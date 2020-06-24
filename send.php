@@ -49,7 +49,10 @@ if(!isset($_SESSION['logged_user'])){
 	  		$mysql->close();
 	  		?>
 	  		<input type="submit" name="send" value="Send">
-	  		<div class="filesend"></div>
+	  		<div class="filesend">
+	  			<input type="file" title=" " name="upload" id="upload" onchange="getName(this.value);" />
+	  			<div id="fileformlabel">Выбери или перетащи</div>
+	  		</div>
 		</form>
 		</div>
 	</div>
