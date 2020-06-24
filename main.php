@@ -20,7 +20,8 @@ echo '<a href="/logout.php">Выход</a>';
 </head>
 <body>
 	<div class="container">
-
+		<div class="right">
+		</div>
 	</div>
 </body>
 </html>
