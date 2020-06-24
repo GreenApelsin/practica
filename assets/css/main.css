@@ -156,3 +156,28 @@ input[type="submit"]:focus {
 	background: #96192C;
 	outline: none;
 }
+
+select {
+	height: 30px;
+    width: 160px;
+    border: 1px solid #1f253d;
+    border-radius: 4px;
+    background: #50597b;
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 15.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+select::placeholder {
+	color: #9099b7;
+	font-size: 15.5px;
+}
+
+select:focus {
+	border: 1px solid #11a8ab;
+    border-radius: 4px;
+    outline: none;
+}
