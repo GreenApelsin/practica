@@ -29,16 +29,17 @@ if(!isset($_SESSION['logged_user'])){
 			</ui>
 		</div>
 		<div class="right">
+			<h1>Main page</h1>
 			<table>
-				<tr>
-					<td>Owner</td>
-					<td>File name</td>
+				<tr class="trtit">
+					<th>Owner</th>
+					<th>File name</th>
 				</tr>
 				<tr>
 					<td>odmen</td>
 					<td>файл</td>
 				</tr>
-				<tr>
+				<tr class="tr2">
 					<td>odmen</td>
 					<td>doclad</td>
 				</tr>
