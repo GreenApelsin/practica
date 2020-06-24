@@ -51,8 +51,6 @@ if(!isset($_SESSION['logged_user'])){
 	  		?>
 
 	  		<input type="submit" name="send" value="Send">
-	  		<a href="#" style="visibility: hidden;">Forgot Password?</a>
-	  		<a href="/register.php" style="text-align: right;">Create account</a>
 		</form>
 		</div>
 	</div>
