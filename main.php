@@ -34,14 +34,21 @@ if(!isset($_SESSION['logged_user'])){
 					<th>Owner</th>
 					<th>File name</th>
 				</tr>
-				<tr>
-					<td>odmen</td>
-					<td>файл</td>
-				</tr>
-				<tr class="tr2">
-					<td>odmen</td>
-					<td>doclad</td>
-				</tr>
+				<?php
+				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
+				$cursor = $mysql->query("SELECT `login`, `real-name` FROM `infofiles`, `user` WHERE `infofiles`.`id` = `user`.`id`;");
+				$flagg = false;
+				while( $result = $cursor->fetch_assoc() ) { 
+					if ($flagg){
+						echo '<tr><td>';
+					}else{
+						echo '<tr class="tr2"><td>';
+					}
+        			echo $result['login'].'</td><td>'.$result['real-name'].'</td></tr>';
+        			$flagg = !$flagg;
+        		}
+				$mysql->close();
+				?>
 			</table>
 		</div>
 	</div>
