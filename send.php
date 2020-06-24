@@ -2,8 +2,6 @@
 $configs = include('config.php');
 $errors = array();
 $data = $_POST;
-var_dump($_FILES['upload']);
-var_dump($data['upload']);
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 }
@@ -15,10 +13,17 @@ if (isset($data['send'])) {
 	if(trim($data['select']) == ''){
 		$errors[] = "Selected user can't be empty";
 	}
-	if (isset($_FILES['upload'])) {
-		echo "string";
+	var_dump($_FILES);
+	if (isset($_FILES['upload']) && $_FILES['name'] != '') {
 		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$_FILES['upload']['name']);
-		echo "string";
+		echo "string1";
+		$cursor = $mysql->query("CHECK TABLE infofiles;");
+		echo "string2";
+		$result = $cursor->fetch_assoc();
+		if ($result['Msg_type'] == 'Error'){
+			echo "string3";
+		}
+		$mysql->close();
 	}else{
 		$errors[] = "File can't be empty";
 	}
@@ -50,7 +55,7 @@ if (isset($data['send'])) {
 		<div class="right">
 			<h1>Send file</h1>
 
-		<form action="send.php" method="post">
+		<form action="send.php" method="post" enctype="multipart/form-data">
 	  		<?php 
 	  		if(!empty($errors)){
 	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
@@ -68,7 +73,7 @@ if (isset($data['send'])) {
       		echo '</select>';
 	  		$mysql->close();
 	  		?>
-	  		
+
 	  		<input type="submit" name="send" value="Send">
 	  		<div class="filesend">
 	  			<input type="file" title=" " name="upload" id="upload" onchange="getName(this.value);" />
