@@ -6,17 +6,17 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
-.right {
+.left {
 	width: 300px;
 }
 
-.right li {
+.left li {
 	height: 60px;
     background: #394264;
     list-style-type: none;
 }
 
-.right a {
+.left a {
     display: block;
     color: #fff;
     text-decoration: none;
@@ -25,11 +25,11 @@
     padding-left: 60px;
 }
 
-.right a:focus {
+.left a:focus {
 	background: #131D41;
 }
 
-.right a:hover {
+.left a:hover {
 	background: #50597b;
 }
 
