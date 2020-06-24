@@ -28,6 +28,15 @@ if(!isset($_SESSION['logged_user'])){
 				<li class="end"><a href="/logout.php">Log out</a></li>
 			</ui>
 		</div>
+		<div class="right">
+			<table>
+				<tr>
+					<td>Owner</td>
+					<td>File name</td>
+					<td>File weight</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
