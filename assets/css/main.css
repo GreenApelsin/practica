@@ -10,14 +10,32 @@
 	width: 300px;
 }
 
-.right a {
-	width: 100%;
-    display: block;
-    height: 60px;
+.right li {
+	height: 60px;
     background: #394264;
-    color: fff;
+    list-style-type: none;
+}
+
+.right a {
+    display: block;
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
     line-height: 60px;
     padding-left: 60px;
+}
+
+.activ a{
+	background: #50597b;
+}
+
+.menu {
+	background: #11a8ab !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
 }
