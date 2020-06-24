@@ -37,12 +37,11 @@ if(!isset($_SESSION['logged_user'])){
 	  		}
 	  		?>
 	  		<input type="text" name="name" placeholder="Name file" spellcheck="false">
-	  		<input type="file" name="file">
 
 	  		<?php 
 	  		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
 	  		$cursor = $mysql->query("SELECT `login` FROM `user`;");
-			echo '<select name="select"><option selected="selected">Selected user</option>';
+			echo '<select name="select"><option selected="true" disabled="disabled">Selected user</option>';
 			while( $result = $cursor->fetch_assoc() ) { 
         		echo '<option>'.$result['login'].'</option>';
         	}
