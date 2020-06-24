@@ -30,7 +30,7 @@ if(!isset($_SESSION['logged_user'])){
 		</div>
 		<div class="right">
 			<h1>Send file</h1>
-		<form class="container" action="index.php" method="post">
+		<form action="send.php" method="post">
 	  		<?php 
 	  		if(!empty($errors)){
 	  			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
@@ -49,7 +49,7 @@ if(!isset($_SESSION['logged_user'])){
       		echo '</select>';
 	  		$mysql->close();
 	  		?>
-	  		
+
 	  		<input type="submit" name="send" value="Send">
 	  		<a href="#" style="visibility: hidden;">Forgot Password?</a>
 	  		<a href="/register.php" style="text-align: right;">Create account</a>
