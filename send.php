@@ -49,17 +49,22 @@ if(!isset($_SESSION['logged_user'])){
 	  		$mysql->close();
 	  		?>
 	  		<input type="submit" name="send" value="Send">
-	  		<div class="example-1">
-  <div class="form-group">
-    <label class="label">
-      <i class="material-icons">attach_file</i>
-      <span class="title">Добавить файл</span>
-      <input type="file">
-    </label>
-  </div>
-</div>
+	  		<div class="filesend"></div>
 		</form>
 		</div>
 	</div>
+	<script>
+		function getName (str){
+    		if (str.lastIndexOf('\\')){
+        		var i = str.lastIndexOf('\\')+1;
+    		}
+    		else{
+        		var i = str.lastIndexOf('/')+1;
+    		}						
+    		var filename = str.slice(i);			
+    		var uploaded = document.getElementById("fileformlabel");
+    		uploaded.innerHTML = filename;
+		}
+  	</script>
 </body>
 </html>
