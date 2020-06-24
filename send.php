@@ -30,6 +30,18 @@ if(!isset($_SESSION['logged_user'])){
 		</div>
 		<div class="right">
 			<h1>Send file</h1>
+		<form class="container" action="index.php" method="post">
+	  		<?php 
+	  		if(empty($errors)){
+	  			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
+	  		}
+	  		?>
+	  		<input type="text" name="name" placeholder="Name file" spellcheck="false">
+	  		<input type="password" name="password" placeholder="Password">
+	  		<input type="submit" name="signin" value="Sign in">
+	  		<a href="#" style="visibility: hidden;">Forgot Password?</a>
+	  		<a href="/register.php" style="text-align: right;">Create account</a>
+		</form>
 		</div>
 	</div>
 </body>
