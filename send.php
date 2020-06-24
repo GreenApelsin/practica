@@ -1,11 +1,30 @@
 <?php 
 $configs = include('config.php');
 $errors = array();
-
+$data = $_POST;
+var_dump($_FILES['upload']);
+var_dump($data['upload']);
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 }
 
+if (isset($data['send'])) {
+	if(trim($data['name']) == ''){
+		$errors[] = "File name can't be empty";
+	}
+	if(trim($data['select']) == ''){
+		$errors[] = "Selected user can't be empty";
+	}
+	if (isset($_FILES['upload'])) {
+		echo "string";
+		move_uploaded_file($_FILES['upload']['tmp_name'], "file/".$_FILES['upload']['name']);
+		echo "string";
+	}else{
+		$errors[] = "File can't be empty";
+	}
+	
+
+}
 ?>
 
 <html>
@@ -30,13 +49,14 @@ if(!isset($_SESSION['logged_user'])){
 		</div>
 		<div class="right">
 			<h1>Send file</h1>
+
 		<form action="send.php" method="post">
 	  		<?php 
 	  		if(!empty($errors)){
-	  			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
+	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
 	  		}
 	  		?>
-	  		<input type="text" name="name" placeholder="Name file" spellcheck="false">
+	  		<input type="text" name="name" placeholder="File name" spellcheck="false" value="<?php if(!$regok){echo @$data['name'];} ?>">
 
 	  		<?php 
 	  		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
@@ -48,12 +68,14 @@ if(!isset($_SESSION['logged_user'])){
       		echo '</select>';
 	  		$mysql->close();
 	  		?>
+	  		
 	  		<input type="submit" name="send" value="Send">
 	  		<div class="filesend">
 	  			<input type="file" title=" " name="upload" id="upload" onchange="getName(this.value);" />
 	  			<div id="fileformlabel">Выбери или перетащи</div>
 	  		</div>
 		</form>
+
 		</div>
 	</div>
 	<script>
@@ -64,7 +86,7 @@ if(!isset($_SESSION['logged_user'])){
     		else{
     				var i = str.lastIndexOf('/')+1;
     		}						
-    		
+
     		if (i == 0){
     			var filename = "Выбери или перетащи";
     		}else{
