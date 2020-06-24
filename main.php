@@ -21,6 +21,11 @@ echo '<a href="/logout.php">Выход</a>';
 <body>
 	<div class="container">
 		<div class="right">
+			<ui>
+				<li>Menu</li>
+				<li>Menu1</li>
+				<li>Menu2</li>
+			</ui>
 		</div>
 	</div>
 </body>
