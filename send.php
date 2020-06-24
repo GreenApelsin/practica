@@ -48,8 +48,16 @@ if(!isset($_SESSION['logged_user'])){
       		echo '</select>';
 	  		$mysql->close();
 	  		?>
-
 	  		<input type="submit" name="send" value="Send">
+	  		<div class="example-1">
+  <div class="form-group">
+    <label class="label">
+      <i class="material-icons">attach_file</i>
+      <span class="title">Добавить файл</span>
+      <input type="file">
+    </label>
+  </div>
+</div>
 		</form>
 		</div>
 	</div>
