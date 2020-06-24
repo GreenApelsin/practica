@@ -69,3 +69,10 @@ h1 {
 	text-transform: uppercase;
 	line-height: 11px;
 }
+
+.errorlogin {
+	text-align: center;
+    color: #cc324b;
+    margin-top: 15px;
+    font-weight: 500;
+}
