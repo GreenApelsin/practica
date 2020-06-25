@@ -48,8 +48,9 @@ if (isset($data['send'])) {
 		}
 		//записываем строку в базу
 		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('".$gennsme."', '".$data['name']."', '".$_SESSION['logged_user']['id']."', '".$id['id']."');");
-		$sendok = true;
 		$mysql->close();
+		$_SESSION['sendok'] = true;
+		header("Location: /send.php");
 	}else{
 		$errors[] = "File can't be empty";
 	}
@@ -86,8 +87,9 @@ if (isset($data['send'])) {
 	  		if(!empty($errors)){
 	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
 	  		}
-	  		if($sendok){
+	  		if($_SESSION['sendok']){
   				echo '<div class="errorSend" style="color: #53B82D">File send</div>';
+  				unset($_SESSION['sendok']);
   			}
 	  		?>
 
