@@ -37,7 +37,7 @@ if(!isset($_SESSION['logged_user'])){
 				</tr>
 				<?php
 				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`author-id` = `user`.`id`;");
+				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`author-id` = `user`.`id` ORDER BY `infofiles`.`id` DESC;");
 				$flagg = false;
 				while( $result = $cursor->fetch_assoc() ) { 
 					if ($flagg){
