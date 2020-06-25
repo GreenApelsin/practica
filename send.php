@@ -96,9 +96,10 @@ if (isset($data['send'])) {
 
 	  		<input type="text" name="name" placeholder="File name" spellcheck="false" value="<?php if(!$regok){echo @$data['name'];} ?>">
 
-	  		<?php 
+	  		<?php
+	  		//грузим список
 	  		$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-	  		$cursor = $mysql->query("SELECT `login` FROM `user`;");
+	  		$cursor = $mysql->query("SELECT `login` FROM `user` WHERE id != '".$_SESSION['logged_user']['id']."';");
 			echo '<select name="select"><option selected="true" disabled="disabled">Selected user</option>';
 			while( $result = $cursor->fetch_assoc() ) { 
         		echo '<option>'.$result['login'].'</option>';
