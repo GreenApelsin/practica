@@ -39,7 +39,6 @@ if ($_GET['del'] != ''){
 		<div class="right">
 			<h1>My files</h1>
 			<?php 
-			var_dump($_SESSION['delok']);
 	  		if($_SESSION['delok']){
   				echo '<div class="errorSend" style="color: #53B82D">File deleted</div>';
   				unset($_SESSION['delok']);
