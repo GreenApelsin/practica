@@ -46,7 +46,7 @@ if ($_GET['del'] != ''){
 	  		?>
 			<table>
 				<tr class="trtit">
-					<th>From whom</th>
+					<th>Delete?</th>
 					<th>File name</th>
 				</tr>
 				<?php
