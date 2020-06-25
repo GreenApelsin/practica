@@ -46,7 +46,7 @@ if(!isset($_SESSION['logged_user'])){
 					}else{
 						echo '<tr class="tr2"><td>';
 					}
-        			echo $result['login'].'</td><td><a href="/save.php?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
+        			echo '<a href="?del='.$result['name'].'">Delete</a></td><td><a href="/save.php?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
         			$flagg = !$flagg;
         		}
 				$mysql->close();
