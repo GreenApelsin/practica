@@ -52,7 +52,7 @@ if (isset($data['signin'])){
   			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
   		}
   		?>
-  		<input type="text" name="login" placeholder="Login" spellcheck="false">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php if(!$regok){echo @$data['login'];} ?>">
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#" style="visibility: hidden;">Forgot Password?</a>
