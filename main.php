@@ -39,6 +39,12 @@ if(!isset($_SESSION['logged_user'])){
 				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
 				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`author-id` = `user`.`id` ORDER BY `infofiles`.`id` DESC;");
 				$flagg = false;
+				//узнаем сколько строк нам возвращено
+				$num_rows = mysqli_num_rows($cursor);
+				if ($num_rows % 2 == 0)
+					$flagg = true;
+				else
+					$flagg = false;
 				while( $result = $cursor->fetch_assoc() ) { 
 					if ($flagg){
 						echo '<tr><td>';
