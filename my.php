@@ -8,13 +8,10 @@ if(!isset($_SESSION['logged_user'])){
 
 if ($_GET['del'] != ''){
 	$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-	$result = $mysql->query("DELETE FROM `infofiles` WHERE `name` = '".$_GET['del']."';");
-	var_dump($result);
-	if ($result['Msg_type'] == 'Error'){
-		$mysql->close();
-		header("Location: /my.php");
-	}
+	$mysql->query("DELETE FROM `infofiles` WHERE `name` = '".$_GET['del']."';");
 	$_SESSION['delok'] = true;
+	header("Location: /my.php");
+	exit();
 }
 
 ?>
@@ -42,6 +39,7 @@ if ($_GET['del'] != ''){
 		<div class="right">
 			<h1>My files</h1>
 			<?php 
+			var_dump($_SESSION['delok']);
 	  		if($_SESSION['delok']){
   				echo '<div class="errorSend" style="color: #53B82D">File deleted</div>';
   				unset($_SESSION['delok']);
