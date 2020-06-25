@@ -1,7 +1,6 @@
 <?php
 require "config.php";
 $configs = include('config.php');
-$regok = false;
 $data = $_POST;
 $errors = array();
 
@@ -51,7 +50,9 @@ if (isset($data['create'])){
 		}else{
 			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
 			$mysql->close();
-			$regok = true;
+			$_SESSION['regok'] = true;
+			header("Location: /register.php");
+			exit();
 		}
 	}
 }
@@ -74,8 +75,9 @@ if (isset($data['create'])){
   		if(!empty($errors)){
   			echo '<div class="errorlogin">'.array_shift($errors).'</div>';
   		}
-  		if($regok){
+  		if($_SESSION['regok']){
   			echo '<div class="errorlogin" style="color: #53B82D">Registration completed successfully</div>';
+  			unset($_SESSION['regok']);
   		}
   		?>
   		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php if(!$regok){echo @$data['login'];} ?>">
