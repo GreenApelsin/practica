@@ -212,3 +212,14 @@ input[type="file"]{
     font-weight: 500;
     margin: -10px 0 10px 0;
 }
+
+.right a {
+    color: #9099b7;
+    text-decoration: none;
+    display: inline-block;
+    width: 128px;
+}
+
+.right a:hover {
+    color: #fff;
+}
