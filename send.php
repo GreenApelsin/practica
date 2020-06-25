@@ -51,6 +51,7 @@ if (isset($data['send'])) {
 		$mysql->close();
 		$_SESSION['sendok'] = true;
 		header("Location: /send.php");
+		exit();
 	}else{
 		$errors[] = "File can't be empty";
 	}
