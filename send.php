@@ -50,7 +50,7 @@ if (isset($data['send'])) {
 		$mysql->query("INSERT INTO `infofiles` (`name`, `real-name`, `author-id`, `where-id`) VALUES ('".$gennsme."', '".$data['name']."', '".$_SESSION['logged_user']['id']."', '".$id['id']."');");
 		$mysql->close();
 		$_SESSION['sendok'] = true;
-		header("Location: /send.php");
+		header("Location: /send");
 		exit();
 	}else{
 		$errors[] = "File can't be empty";
@@ -73,17 +73,17 @@ if (isset($data['send'])) {
 		<div class="left">
 			<ui>
 				<li class="menu">Menu</li>
-				<li><a href="/main.php">Main page</a></li>
-				<li class="activ"><a href="/send.php">Send file</a></li>
-				<li><a href="/my.php">My files</a></li>
-				<li><a href="/received.php">Received file</a></li>
-				<li class="end"><a href="/logout.php">Log out</a></li>
+				<li><a href="/main">Main page</a></li>
+				<li class="activ"><a href="/send">Send file</a></li>
+				<li><a href="/my">My files</a></li>
+				<li><a href="/received">Received file</a></li>
+				<li class="end"><a href="/logout">Log out</a></li>
 			</ui>
 		</div>
 		<div class="right">
 			<h1>Send file</h1>
 
-		<form action="send.php" method="post" enctype="multipart/form-data">
+		<form action="send" method="post" enctype="multipart/form-data">
 	  		<?php 
 	  		if(!empty($errors)){
 	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
