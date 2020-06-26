@@ -20,11 +20,11 @@ if(!isset($_SESSION['logged_user'])){
 		<div class="left">
 			<ui>
 				<li class="menu">Menu</li>
-				<li class="activ"><a href="/main.php">Main page</a></li>
-				<li><a href="/send.php">Send file</a></li>
-				<li><a href="/my.php">My files</a></li>
-				<li><a href="/received.php">Received file</a></li>
-				<li class="end"><a href="/logout.php">Log out</a></li>
+				<li class="activ"><a href="/main">Main page</a></li>
+				<li><a href="/send">Send file</a></li>
+				<li><a href="/my">My files</a></li>
+				<li><a href="/received">Received file</a></li>
+				<li class="end"><a href="/logout">Log out</a></li>
 			</ui>
 		</div>
 		<div class="right">
@@ -45,7 +45,7 @@ if(!isset($_SESSION['logged_user'])){
 					}else{
 						echo '<tr class="tr2"><td>';
 					}
-        			echo $result['login'].'</td><td><a href="/save.php?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
+        			echo $result['login'].'</td><td><a href="/save?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
         			$flagg = !$flagg;
         		}
 				$mysql->close();
