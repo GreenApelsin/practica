@@ -5,7 +5,7 @@ $data = $_POST;
 $errors = array();
 
 if(isset($_SESSION['logged_user'])){
-	header("Location: /main.php");
+	header("Location: /main");
 	exit();
 }
 
@@ -25,7 +25,7 @@ if (isset($data['signin'])){
 			if (password_verify($data['password'], $result['password'])){
 				$_SESSION['logged_user'] = $result;
 				$mysql->close();
-				header("Location: /main.php");
+				header("Location: /main");
 				exit();
 			}
 		}
@@ -45,7 +45,7 @@ if (isset($data['signin'])){
 	<title>Авторизация</title>
 </head>
 <body>
-	<form class="container" action="index.php" method="post">
+	<form class="container" action="index" method="post">
   		<h1>Sign in to your account</h1>
   		<?php 
   		if(!empty($errors)){
@@ -56,7 +56,7 @@ if (isset($data['signin'])){
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#" style="visibility: hidden;">Forgot Password?</a>
-  		<a href="/register.php" style="text-align: right;">Create account</a>
+  		<a href="/register" style="text-align: right;">Create account</a>
 	</form>
 </body>
 </html>
