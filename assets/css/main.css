@@ -8,7 +8,7 @@
 
 .left {
 	float: left;
-	width: 300px;
+	width: 25%;
 }
 
 .left li {
@@ -70,7 +70,7 @@
 
 .right {
 	float: right;
-    width: 870px;
+    width: 73%;
     background: #394264;
     border-radius: 4px;
     padding: 20px;
