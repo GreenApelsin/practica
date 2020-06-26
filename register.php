@@ -5,7 +5,7 @@ $data = $_POST;
 $errors = array();
 
 if(isset($_SESSION['logged_user'])){
-	header("Location: /main.php");
+	header("Location: /main");
 	exit();
 }
 
@@ -51,7 +51,7 @@ if (isset($data['create'])){
 			$mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('".$data['login']."', '".$data['email']."', '".password_hash($data['password'], PASSWORD_DEFAULT)."');");
 			$mysql->close();
 			$_SESSION['regok'] = true;
-			header("Location: /register.php");
+			header("Location: /register");
 			exit();
 		}
 	}
@@ -69,7 +69,7 @@ if (isset($data['create'])){
 	<title>Регистрация</title>
 </head>
 <body>
-	<form class="container" action="register.php" method="post">
+	<form class="container" action="register" method="post">
   		<h1>Registration</h1>
   		<?php 
   		if(!empty($errors)){
