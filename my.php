@@ -10,7 +10,7 @@ if ($_GET['del'] != ''){
 	$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
 	$mysql->query("DELETE FROM `infofiles` WHERE `name` = '".$_GET['del']."';");
 	$_SESSION['delok'] = true;
-	header("Location: /my.php");
+	header("Location: /my");
 	exit();
 }
 
@@ -29,11 +29,11 @@ if ($_GET['del'] != ''){
 		<div class="left">
 			<ui>
 				<li class="menu">Menu</li>
-				<li><a href="/main.php">Main page</a></li>
-				<li><a href="/send.php">Send file</a></li>
-				<li class="activ"><a href="/my.php">My files</a></li>
-				<li><a href="/received.php">Received file</a></li>
-				<li class="end"><a href="/logout.php">Log out</a></li>
+				<li><a href="/main">Main page</a></li>
+				<li><a href="/send">Send file</a></li>
+				<li class="activ"><a href="/my">My files</a></li>
+				<li><a href="/received">Received file</a></li>
+				<li class="end"><a href="/logout">Log out</a></li>
 			</ui>
 		</div>
 		<div class="right">
@@ -60,7 +60,7 @@ if ($_GET['del'] != ''){
 					}else{
 						echo '<tr class="tr2"><td>';
 					}
-        			echo '<a href="?del='.$result['name'].'">Delete</a></td><td><a href="/save.php?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
+        			echo '<a href="?del='.$result['name'].'">Delete</a></td><td><a href="/save?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
         			$flagg = !$flagg;
         		}
 				$mysql->close();
