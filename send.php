@@ -4,6 +4,7 @@ $errors = array();
 $data = $_POST;
 $sendok = false;
 
+
 if(!isset($_SESSION['logged_user'])){
 	header("Location: /");
 	exit();
@@ -87,7 +88,7 @@ if (isset($data['send'])) {
 		<div class="right">
 			<h1>Send file</h1>
 
-		<form action="send" method="post" enctype="multipart/form-data">
+		<form action="send" method="post" enctype="multipart/form-data" id="post">
 	  		<?php 
 	  		if(!empty($errors)){
 	  			echo '<div class="errorSend">'.array_shift($errors).'</div>';
@@ -143,8 +144,10 @@ if (isset($data['send'])) {
     			var filename = "Выбери или перетащи";
     		}else{
     			var filename = str.slice(i);
+    			
     		}			
     		var uploaded = document.getElementById("fileformlabel");
+    		post.name.value = filename;
     		uploaded.innerHTML = filename;
 		}
   	</script>
