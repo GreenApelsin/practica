@@ -38,8 +38,8 @@ if (isset($data['signin'])){
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/login.css">
+	<link rel="stylesheet" type="text/css" href="support/css/style.css">
+	<link rel="stylesheet" type="text/css" href="support/css/login.css">
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 	<title>Авторизация</title>
 </head>
