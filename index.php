@@ -3,10 +3,10 @@ session_start();
 require 'config.php';
 $url = "view/".$_SERVER['REQUEST_URI'].".php";
 
-// ищем страницу по url
-if (file_exists($url))
+// ищем страницу по url в папке 'view'
+if (file_exists($url)) {
     include_once $url;
-else{
+}else{
     //если не нашли, то проверяем авторизацию
     if (isset($_SESSION['logged_user']))
         include_once "view/main.php";
