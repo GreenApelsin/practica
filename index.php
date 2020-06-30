@@ -1,16 +1,22 @@
 <?php
 session_start();
-$configs = require 'config.php';
-$url = "view/".$_SERVER['REQUEST_URI'].".php";
+
+$url = $_SERVER['REQUEST_URI'];
+
+if ($url == '/')
+    $url = "controller/login.php";
+else
+    $url = "controller/".$url.".php";
 
 // ищем страницу по url в папке 'view'
 if (file_exists($url)) {
     include_once $url;
 }else{
-    //если не нашли, то проверяем авторизацию
+    // если не нашли, то проверяем авторизацию
     if (isset($_SESSION['logged_user']))
-        include_once "view/main.php";
+        header("Location: /main");
     else
-        include_once "view/login.php";
+        header("Location: /");
+
 
 }
