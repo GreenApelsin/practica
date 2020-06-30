@@ -9,8 +9,16 @@ $url = $_SERVER['REQUEST_URI'];
 
 if ($url == '/')
     $url = "controller/login.php";
-else
+else{
+    // ищем GET в url'e
+    $pos = strpos($url,'?');
+    // если нашли то удаляем GET
+    if ($pos)
+        $url = $end = substr($url, 0, $pos);
+
     $url = "controller/".$url.".php";
+}
+
 
 // ищем страницу по url в папке 'view'
 if (file_exists($url)) {
@@ -24,3 +32,4 @@ if (file_exists($url)) {
 
 
 }
+
