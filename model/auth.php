@@ -1,4 +1,5 @@
 <?php
+
 function authLogin($data){
     $configs = require "config.php";
     $errors = array();
@@ -34,3 +35,5 @@ function authLogin($data){
 
     return $errors;
 }
+
+
