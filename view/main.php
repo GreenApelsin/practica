@@ -1,17 +1,8 @@
-<?php 
-$configs = include('config.php');
-$errors = array();
-
-if(!isset($_SESSION['logged_user'])){
-	header("Location: /");
-}
-?>
-
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../support/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../support/css/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 	<title>Главная</title>
 </head>
@@ -28,29 +19,7 @@ if(!isset($_SESSION['logged_user'])){
 			</ui>
 		</div>
 		<div class="right">
-			<h1>Main page</h1>
-			<table>
-				<tr class="trtit">
-					<th>Owner</th>
-					<th>File name</th>
-				</tr>
-				<?php
-				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`author-id` = `user`.`id` ORDER BY `infofiles`.`id` DESC;");
-				$flagg = true;
-				//узнаем сколько строк нам возвращено
-				while( $result = $cursor->fetch_assoc() ) { 
-					if ($flagg){
-						echo '<tr><td>';
-					}else{
-						echo '<tr class="tr2"><td>';
-					}
-        			echo $result['login'].'</td><td><a href="/save?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
-        			$flagg = !$flagg;
-        		}
-				$mysql->close();
-				?>
-			</table>
+            <?php echo $viewTable; ?>
 		</div>
 	</div>
 </body>
