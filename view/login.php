@@ -8,14 +8,14 @@
 	<title>Авторизация</title>
 </head>
 <body>
-	<form class="container" action="login" method="post">
+	<form class="container" action="login" method="post" id="authID">
   		<h1>Sign in to your account</h1>
   		<?php
   		if(!empty($errors)){
   			echo '<div class="errorLogin">'.array_shift($errors).'</div>';
   		}
   		?>
-  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php if(!isset($_SESSION['logged_user'])){echo @$data['login'];} ?>">
+  		<input type="text" name="login" placeholder="Login" spellcheck="false" value="<?php if(!isset($_SESSION['logged_user'])) echo @$_POST['login']; ?>">
   		<input type="password" name="password" placeholder="Password">
   		<input type="submit" name="signin" value="Sign in">
   		<a href="#" style="visibility: hidden;">Forgot Password?</a>
