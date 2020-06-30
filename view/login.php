@@ -1,5 +1,4 @@
 <?php
-$configs = include('controller/config.php');
 $data = $_POST;
 $errors = array();
 
