@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+$configs = require 'config.php';
 $url = "view/".$_SERVER['REQUEST_URI'].".php";
 
 // ищем страницу по url в папке 'view'
