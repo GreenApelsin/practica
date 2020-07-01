@@ -7,7 +7,7 @@ if (!isset($_SESSION['logged_user'])){
 }
 
 // подключаем model
-include_once "model/saveLoad.php";
+include_once "model/loadPage.php";
 
 // узнаем страницу к которой обращаемся
 $checkURL = substr($url, 11, -4);
