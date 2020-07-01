@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+    <script src="../support/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="../support/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../support/css/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,4 +24,5 @@
 		</div>
 	</div>
 </body>
+<script>
 </html>
