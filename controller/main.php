@@ -1,10 +1,20 @@
 <?php
 
+// чек авторизации
+if (!isset($_SESSION['logged_user'])){
+    header("Location: /");
+    exit();
+}
+
 // подключаем model
 include_once "model/saveLoad.php";
 
-// перееадресовываем post в model, и возвращаем ошибки
-$viewTable = loadTable($_POST);
+// узнаем страницу к которой обращаемся
+$checkURL = substr($url, 11, -4);
 
-// подключаем страницу с автооризацией (внешний вид)
+
+// обращаемся к model
+$viewTable = $checkURL();
+
+// подключаем внешний вид
 include_once "view/main.php";

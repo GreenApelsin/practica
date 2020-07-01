@@ -11,10 +11,10 @@
 		<div class="left">
 			<ui>
 				<li class="menu">Menu</li>
-				<li class="activ"><a href="/main">Main page</a></li>
-				<li><a href="/send">Send file</a></li>
-				<li><a href="/my">My files</a></li>
-				<li><a href="/received">Received file</a></li>
+				<li<? if ($checkURL == "main") echo ' class="activ"'; ?>><a href="/main">Main page</a></li>
+                <li<? if ($checkURL == "send") echo ' class="activ"'; ?>><a href="/send">Send file</a></li>
+                <li<? if ($checkURL == "my") echo ' class="activ"'; ?>><a href="/my">My files</a></li>
+                <li<? if ($checkURL == "received") echo ' class="activ"'; ?>><a href="/received">Received file</a></li>
 				<li class="end"><a href="/logout">Log out</a></li>
 			</ui>
 		</div>

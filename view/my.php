@@ -49,22 +49,7 @@ if ($_GET['del'] != ''){
 					<th>Delete?</th>
 					<th>File name</th>
 				</tr>
-				<?php
-				$mysql = new mysqli($configs['localhost'], $configs['username'], $configs['password'], $configs['dbname']);
-				$cursor = $mysql->query("SELECT `login`, `real-name`, `name` FROM `infofiles`, `user` WHERE `infofiles`.`author-id` = `user`.`id` AND `author-id` = '".$_SESSION['logged_user']['id']."' ORDER BY `infofiles`.`id` DESC;");
-				$flagg = true;
-				//узнаем сколько строк нам возвращено
-				while( $result = $cursor->fetch_assoc() ) { 
-					if ($flagg){
-						echo '<tr><td>';
-					}else{
-						echo '<tr class="tr2"><td>';
-					}
-        			echo '<a href="?del='.$result['name'].'">Delete</a></td><td><a href="/save?f='.$result['name'].'">'.$result['real-name'].'</a></td></tr>';
-        			$flagg = !$flagg;
-        		}
-				$mysql->close();
-				?>
+
 			</table>
 		</div>
 	</div>
